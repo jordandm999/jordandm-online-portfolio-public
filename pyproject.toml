@@ -1,7 +1,7 @@
 [project]
-name = "characters_mcp"
+name = "jordandm_online_portfolio"
 version = "0.1.0"
-description = "Talk to you favorite characters!"
+description = "A web portfolio for Jordan Morgan"
 dependencies = [
     "mcp[cli]>=1.2.0", 
     "uvicorn",
