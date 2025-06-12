@@ -1,0 +1,21 @@
+# Python
+venv/
+.venv/
+__pycache__/
+.mypy_cache/
+*.pyc
+
+# Django
+db.sqlite3
+*.sqlite3
+media/
+staticfiles/
+.env
+
+# Node (if using)
+node_modules/
+npm-debug.log
+
+# Compiled
+*.o
+build/
