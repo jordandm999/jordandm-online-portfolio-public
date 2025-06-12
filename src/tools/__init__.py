@@ -1,6 +1,6 @@
-# from . import <tool_name>
+from . import hello_world
 
 # registry of all tools
 tool_registry = [
-    # <tool_name>
+    hello_world.hello_world
 ]
