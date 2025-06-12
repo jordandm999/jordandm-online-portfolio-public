@@ -2,8 +2,9 @@
 name = "jordandm_online_portfolio"
 version = "0.1.0"
 description = "A web portfolio for Jordan Morgan"
+requires-python = ">=3.10"
 dependencies = [
-    "mcp[cli]>=1.2.0", 
+    "mcp[cli]>=1.2.0",
     "uvicorn",
     "fastapi",
     "httpx-sse",
@@ -12,6 +13,7 @@ dependencies = [
     "typer",
     "requests",
     "pyyaml",
+    "django>=5.2.3",
 ]
 
 [build-system]
