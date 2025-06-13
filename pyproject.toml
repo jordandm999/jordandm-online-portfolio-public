@@ -14,6 +14,8 @@ dependencies = [
     "requests",
     "pyyaml",
     "django>=5.2.3",
+    "pytest",
+    "httpx",
 ]
 
 [build-system]
