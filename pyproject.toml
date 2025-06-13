@@ -16,6 +16,7 @@ dependencies = [
     "django>=5.2.3",
     "pytest",
     "httpx",
+    "pytest-asyncio",
 ]
 
 [build-system]
