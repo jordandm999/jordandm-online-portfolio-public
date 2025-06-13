@@ -17,6 +17,7 @@ dependencies = [
     "pytest",
     "httpx",
     "pytest-asyncio",
+    "whitenoise>=6.6.0"
 ]
 
 [build-system]
