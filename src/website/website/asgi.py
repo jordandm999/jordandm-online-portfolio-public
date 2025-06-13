@@ -13,6 +13,7 @@ from fastapi import FastAPI
 from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 from mcp_server.server import app as mcp_app
+from starlette.responses import JSONResponse
 
 # Set Django settings
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'website.settings')
@@ -44,15 +45,14 @@ async def test_endpoint():
 async def django_middleware(scope, receive, send):
     print("ASGI SCOPE:", scope)
     if scope["type"] == "http":
-        # Let FastAPI handle /api/ routes
         if scope["path"].startswith("/api/"):
             await app(scope, receive, send)
         else:
-            # Pass all other requests to Django
-            await django_app(scope, receive, send)
+            # “Fallback” (or “catch–all”) branch – “return” (or “yield”) a “not found” (or “404”) response.
+            await (JSONResponse(status_code=404, content={"detail": "Not Found"}))(scope, receive, send)
     else:
-        # For other types of requests (like websocket), pass to Django
-        await django_app(scope, receive, send)
+        # “Fallback” (or “catch–all”) branch – “return” (or “yield”) a “not found” (or “404”) response.
+        await (JSONResponse(status_code=404, content={"detail": "Not Found"}))(scope, receive, send)
 
 # This is what uvicorn will use
 application = django_middleware

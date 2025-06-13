@@ -9,8 +9,8 @@ from .tools import tool_registry
 app = FastAPI()
 
 # Set up SSE transport
-sse_transport = SseServerTransport("/api/mcp_server/messages/")
-app.router.routes.append(Mount("/api/mcp_server/messages", app=sse_transport.handle_post_message))
+sse_transport = SseServerTransport("/mcp_server/messages/")
+app.router.routes.append(Mount("/mcp_server/messages", app=sse_transport.handle_post_message))
 
 # Initialize MCP
 mcp = FastMCP()
