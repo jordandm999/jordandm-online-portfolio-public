@@ -43,15 +43,13 @@ async def test_endpoint():
 
 # Create a middleware that will handle both FastAPI and Django requests
 async def django_middleware(scope, receive, send):
-    print("ASGI SCOPE:", scope)
     if scope["type"] == "http":
         if scope["path"].startswith("/api/"):
             await app(scope, receive, send)
         else:
-            # “Fallback” (or “catch–all”) branch – “return” (or “yield”) a “not found” (or “404”) response.
-            await (JSONResponse(status_code=404, content={"detail": "Not Found"}))(scope, receive, send)
+            # Call Django for non-API paths
+            await django_app(scope, receive, send)
     else:
-        # “Fallback” (or “catch–all”) branch – “return” (or “yield”) a “not found” (or “404”) response.
         await (JSONResponse(status_code=404, content={"detail": "Not Found"}))(scope, receive, send)
 
 # This is what uvicorn will use
