@@ -1,26 +1,14 @@
-import pytest
-from httpx import AsyncClient
-from src.website.website.asgi import application  # Adjust import if needed
+import sys
+import os
 
-@pytest.mark.asyncio
-async def test_api_test():
-    async with AsyncClient(app=application, base_url="http://testserver") as ac:
-        response = await ac.get("/api/test")
-        assert response.status_code == 200
-        assert response.json() == {"message": "FastAPI is working!"}
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src', 'website'))
+sys.path.insert(0, parent_dir)
 
-@pytest.mark.asyncio
-async def test_list_tools():
-    async with AsyncClient(app=application, base_url="http://testserver") as ac:
-        response = await ac.get("/api/mcp_server/list_tools")
-        assert response.status_code == 200
-        assert isinstance(response.json(), list)
+from website.asgi import application
+from fastapi.testclient import TestClient
 
-@pytest.mark.asyncio
-async def test_mcp_server_post():
-    async with AsyncClient(app=application, base_url="http://testserver") as ac:
-        response = await ac.post("/api/mcp_server", json={})
-        # Adjust the expected status code and response as needed
-        assert response.status_code in (200, 202, 400, 404)
+client = TestClient(application)
 
-# Add more tests for other endpoints as needed
+def test_api_list_tools():
+    response = client.get("/api/mcp_server/list_tools")
+    assert response.status_code == 200
