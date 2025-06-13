@@ -12,6 +12,7 @@ from django.core.asgi import get_asgi_application
 from fastapi import FastAPI
 from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
+from mcp_server.server import app as mcp_app
 
 # Set Django settings
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'website.settings')
@@ -31,6 +32,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Include MCP server routes
+app.mount("/api", mcp_app)
+
 # Add a test FastAPI route
 @app.get("/api/test")
 async def test_endpoint():
@@ -38,6 +42,7 @@ async def test_endpoint():
 
 # Create a middleware that will handle both FastAPI and Django requests
 async def django_middleware(scope, receive, send):
+    print("ASGI SCOPE:", scope)
     if scope["type"] == "http":
         # Let FastAPI handle /api/ routes
         if scope["path"].startswith("/api/"):
