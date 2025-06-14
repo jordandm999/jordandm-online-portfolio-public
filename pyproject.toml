@@ -38,14 +38,3 @@ test= [
     "pytest-asyncio>=0.21.0",
     "pytest-cov>=4.0.0",
 ]
-
-[tool.poetry]
-name = "jordandm-online-portfolio"
-version = "0.1.0"
-description = ""
-authors = ["Jordan Morgan jordan.morgan999@gmail.com"]
-
-[tool.poetry.packages]
-include = "website"
-from = "src"
-
