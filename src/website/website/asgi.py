@@ -44,7 +44,7 @@ async def test_endpoint():
 # Create a middleware that will handle both FastAPI and Django requests
 async def django_middleware(scope, receive, send):
     if scope["type"] == "http":
-        if scope["path"].startswith("/api/"):
+        if scope["path"].startswith("/api/mcp_server"):
             await app(scope, receive, send)
         else:
             # Call Django for non-API paths
