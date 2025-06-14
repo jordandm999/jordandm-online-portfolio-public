@@ -17,7 +17,10 @@ dependencies = [
     "pytest",
     "httpx",
     "pytest-asyncio",
-    "whitenoise>=6.6.0"
+    "whitenoise>=6.6.0",
+    "openai",
+    "djangorestframework",
+    "python-dotenv",
 ]
 
 [build-system]
