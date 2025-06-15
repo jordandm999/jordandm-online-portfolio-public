@@ -20,11 +20,15 @@ spec:
           ports:
             - containerPort: 8000  # Change if your ASGI app uses another port
           env:
-            # Add any environment variables your app needs here
-            # - name: DJANGO_SECRET_KEY
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: my-secrets
-            #       key: DJANGO_SECRET_KEY
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: openai-api-key
+                  key: OPENAI_API_KEY
+            - name: DJANGO_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: django-secret-key
+                  key: DJANGO_SECRET_KEY
       imagePullSecrets:
         - name: regcred  # See the note below to create this secret
