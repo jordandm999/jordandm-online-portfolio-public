@@ -11,10 +11,10 @@ virtualenv:
 
 deploy:
   #!/usr/bin/env sh
-  docker buildx build --platform linux/amd64 -t jordan-online-portfolio:latest .
-  docker tag jordan-online-portfolio:latest 886149544017.dkr.ecr.us-west-2.amazonaws.com/websites/jordan-online-portfolio:latest
-  aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 886149544017.dkr.ecr.us-west-2.amazonaws.com
-  docker push 886149544017.dkr.ecr.us-west-2.amazonaws.com/websites/jordan-online-portfolio:latest
+  docker buildx build --platform linux/amd64 -t jordan-online-portfolio:latest -f k8s/Dockerfile . && \
+  docker tag jordan-online-portfolio:latest 886149544017.dkr.ecr.us-west-2.amazonaws.com/websites/jordan-online-portfolio:latest && \
+  aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 886149544017.dkr.ecr.us-west-2.amazonaws.com && \
+  docker push 886149544017.dkr.ecr.us-west-2.amazonaws.com/websites/jordan-online-portfolio:latest && \
   kubectl rollout restart deployment jordan-online-portfolio
 
 
