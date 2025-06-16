@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.env
+.venv/
+env/
+ENV/
+*.env
+*.env.*
+
+# Django local database
+db.sqlite3
+
+# Git and other VCS
+.git/
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test and coverage files
+.coverage
+htmlcov/
+*.log
+
+# Node modules (if using JS tooling)
+node_modules/
+
+# Docker files you don't want in the image
+docker-compose.yml
+Dockerfile
+
+# Miscellaneous
+*.swp
+*.bak
+*.tmp
