@@ -1,0 +1,33 @@
+{
+  "positions": [
+    {
+      "company": "Shopify",
+      "title": "Senior Security Engineer",
+      "current": true,
+      "responsibilities": [
+        "Building tools that leverage AI to support SOC Program",
+        "Designing Model-Context-Protocol servers",
+        "Developing backend agents for process integration"
+      ]
+    },
+    {
+      "company": "Zion's Bank",
+      "title": "GRC Specialist",
+      "duration": "7 years",
+      "responsibilities": [
+        "Designed and tested controls for SOX and GLBA audits",
+        "Led team of 12 testers",
+        "Owned entire testing process",
+        "Built automation tools for program efficiency",
+        "End-to-end tool design and implementation"
+      ],
+      "compliance_frameworks": [
+        "SOX",
+        "GLBA",
+        "SOC",
+        "PCI DSS",
+        "GDPR"
+      ]
+    }
+  ]
+} 

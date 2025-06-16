@@ -1,0 +1,20 @@
+{
+    "featured_projects": [
+      {
+        "name": "Character Chatbot",
+        "description": "Demonstration of MCP server capabilities through an interactive chatbot",
+        "url": "https://jordan-morgan.com/chatbot",
+        "type": "AI Development"
+      },
+      {
+        "name": "Compliance Workflow Automation",
+        "description": "Tool for streamlining compliance tasks",
+        "type": "GRC Automation"
+      },
+      {
+        "name": "Model Context Protocol Implementation",
+        "description": "Educational content on MCP basics and AI application improvement",
+        "type": "Technical Education"
+      }
+    ]
+  }
