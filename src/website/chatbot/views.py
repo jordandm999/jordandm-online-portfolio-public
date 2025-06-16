@@ -15,8 +15,8 @@ class ChatAPIView(APIView):
             tools=[
                 {
                     "type": "mcp",
-                    "server_label": "characters-mcp",
-                    "server_url": "https://jordan-morgan.onrender.com/api/mcp_server",
+                    "server_label": "jordan-career-mcp",
+                    "server_url": "https://jordan-morgan.com/api/mcp_server",
                     "require_approval": "never"
                 }
             ],
