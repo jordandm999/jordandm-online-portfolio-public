@@ -7,8 +7,12 @@
       "responsibilities": [
         "Building tools that leverage AI to support SOC Program",
         "Designing Model-Context-Protocol servers",
-        "Developing backend agents for process integration"
-      ]
+        "Developing backend agents for process integration", 
+        "Automating compliance testing",
+        "Automating compliance reporting",
+        "Automating evidence collection"
+      ],
+      "job_description": "Senior Security Engineer at Shopify. I work on the Trust Assurance team, which is responsible for assessing control effectiveness in order to ensure compliance with regulations. Our biggest responsibility is the annual SOC audit (both SOC 1 and SOC 2). I am one of two engineers on the team, and I am responsible for the design and implementation of the tools that we use to automate the SOC audit process. I primarily support this by integrating AI agents into our existing processes. I manage this end to end, from desiging the MCP servers and clients to building and deploying servers to our Kubernetes clusters. Here, I work primarily in Python and Ruby."
     },
     {
       "company": "Zion's Bank",
@@ -19,15 +23,12 @@
         "Led team of 12 testers",
         "Owned entire testing process",
         "Built automation tools for program efficiency",
-        "End-to-end tool design and implementation"
+        "End-to-end tool design and implementation", 
+        "Designed and implemented compliance testing",
+        "Designed and implemented compliance reporting",
+        "Designed and implemented evidence collection"
       ],
-      "compliance_frameworks": [
-        "SOX",
-        "GLBA",
-        "SOC",
-        "PCI DSS",
-        "GDPR"
-      ]
+      "job_description": "Control Testing Lead at Zion's Bancorporation. I was responsible for leading the testing of the bank's internal controls in order to keep us compliant with regulations including GLBA, SOX, and PCI. I was also responsible for designing the controls we used, working closely with SME's to ensure that controls were effecitve from both a risk and operational perspective. I was also responsible for designing and implementing the automation tools that we used to test controls, as well as in charge of data analytics for the team, doing statistical analysis and creating reports/dashboards for upper management."
     }
   ]
 } 

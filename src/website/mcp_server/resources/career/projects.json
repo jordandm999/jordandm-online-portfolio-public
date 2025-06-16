@@ -1,20 +1,30 @@
 {
     "featured_projects": [
       {
-        "name": "Character Chatbot",
-        "description": "Demonstration of MCP server capabilities through an interactive chatbot",
+        "name": "Jordan's AI Agent",
+        "description": "Demonstration of MCP server capabilities through an interactive chatbot curated to my needs.",
         "url": "https://jordan-morgan.com/chatbot",
         "type": "AI Development"
       },
       {
-        "name": "Compliance Workflow Automation",
-        "description": "Tool for streamlining compliance tasks",
+        "name": "Compliance Workflow Automation using AI agents",
+        "description": "Replacing manual work with AI agents in compliance tasks, such as reviewing change requests, approving firewall tickets, and revising internal docuemntation.",
         "type": "GRC Automation"
       },
       {
         "name": "Model Context Protocol Implementation",
-        "description": "Educational content on MCP basics and AI application improvement",
-        "type": "Technical Education"
+        "description": "Expert in Model Context Protocol (MCP) servers and clients, and how to use them to build AI agents. I have built many MCP servers and clients, and have a deep understanding of how to use them to enhance agents for specific tasks.",
+        "type": "AI Development"
+      },
+      {
+        "name": "GLBA Audits",
+        "description": "Designed and implemented controls for GLBA audits, including the design of the controls and the implementation of the tools to test them. Led a team of 12 testers to complete the audit each year.",
+        "type": "GRC Automation"
+      },
+      {
+        "name": "SOC Audits",
+        "description": "Designed and implemented controls for SOC audits, including the design of the controls and the implementation of the tools to test them.",
+        "type": "GRC Automation"
       }
     ]
   }
