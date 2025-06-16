@@ -1,0 +1,12 @@
+ # Files containing sensitive information
+iam-policy.json filter=git-crypt diff=git-crypt
+**/secrets/** filter=git-crypt diff=git-crypt
+**/.env* filter=git-crypt diff=git-crypt
+**/settings.py filter=git-crypt diff=git-crypt
+
+# Keep these files
+README.md -filter -diff
+src/** -filter -diff
+tests/** -filter -diff
+pyproject.toml -filter -diff
+poetry.lock -filter -diff

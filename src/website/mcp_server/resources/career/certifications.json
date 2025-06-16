@@ -24,7 +24,9 @@
     "education": [
       {
         "degree": "Bachelor's Degree",
-        "field": "Management Information Systems"
+        "field": "Management Information Systems",
+        "school": "Brigham Young University",
+        "graduationDate": "2018"
       }
     ]
   }
