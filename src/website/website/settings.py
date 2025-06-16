@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
+DEBUG = False
 SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'jordan-morgan.com', 'www.jordan-morgan.com']

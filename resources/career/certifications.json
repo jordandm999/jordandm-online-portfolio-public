@@ -1,0 +1,30 @@
+{
+    "certifications": [
+      {
+        "name": "CISSP (Certified Information Systems Security Professional)",
+        "status": "Exam passed, awaiting application approval",
+        "badge_url": "https://www.credly.com/badges/bb2ba8b6-b999-4dc6-a516-a273ef790aab/public_url"
+      },
+      {
+        "name": "CISA (Certified Information Systems Auditor)",
+        "status": "Active",
+        "badge_url": "https://www.credly.com/badges/89d17d36-2fce-4d08-a6c1-4a844552b23b/public_url"
+      },
+      {
+        "name": "CRISC (Certified in Risk and Information Systems Control)",
+        "status": "Active",
+        "badge_url": "https://www.credly.com/badges/7887a789-e91d-49d6-844b-a608d3175929/public_url"
+      },
+      {
+        "name": "Security+",
+        "status": "Active",
+        "badge_url": "https://www.credly.com/badges/6c35616b-96bc-4687-b324-394e1d9d02f3/public_url"
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor's Degree",
+        "field": "Management Information Systems"
+      }
+    ]
+  }

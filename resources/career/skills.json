@@ -1,0 +1,37 @@
+{
+  "primary_specialties": [
+    {
+      "category": "GRC",
+      "years_experience": 7,
+      "frameworks": [
+        "SOX",
+        "GLBA",
+        "SOC",
+        "PCI DSS",
+        "GDPR"
+      ]
+    },
+    {
+      "category": "AI Automation",
+      "expertise": [
+        "Model-Context-Protocol (MCP) servers",
+        "Backend agent development",
+        "AI tool integration",
+        "Compliance automation"
+      ]
+    }
+  ],
+  "technical_skills": [
+    "Security controls design",
+    "Compliance testing",
+    "Tool automation",
+    "AI development",
+    "Process optimization"
+  ],
+  "leadership_skills": [
+    "Team leadership",
+    "Process ownership",
+    "Project management",
+    "Technical design"
+  ]
+} 
