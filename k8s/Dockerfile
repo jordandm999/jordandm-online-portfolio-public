@@ -18,4 +18,4 @@ WORKDIR /code/src/website
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "python manage.py collectstatic --noinput && python manage.py migrate && gunicorn website.wsgi:application --bind 0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py collectstatic --noinput && python manage.py migrate && /code/.venv/bin/uvicorn website.asgi:application --host 0.0.0.0 --port 8000"]
