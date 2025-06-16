@@ -21,7 +21,6 @@ dependencies = [
     "openai",
     "djangorestframework",
     "python-dotenv",
-    "gunicorn (>=23.0.0,<24.0.0)",
 ]
 
 [build-system]
