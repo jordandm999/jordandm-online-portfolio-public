@@ -2,36 +2,135 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chatbot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Assistant</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'main/assets/css/chat.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github-dark.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/lib/highlight.min.js"></script>
 </head>
 <body>
-  <h1>Chat with the Bot</h1>
-  <div id="chat-box"></div>
-  <form id="chat-form">
-    <input type="text" id="user-input" autocomplete="off" placeholder="Type your message..." required>
-    <button type="submit">Send</button>
-  </form>
+  <div class="chat-container">
+    <div class="chat-header">
+      <h1>AI Assistant</h1>
+    </div>
+    
+    <div id="chat-box"></div>
+    <div class="loading-spinner" id="loading-spinner"></div>
+    
+    <div class="chat-input-container">
+      <form id="chat-form">
+        <input type="text" id="user-input" autocomplete="off" placeholder="Ask me anything..." required>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
   <script>
     const chatBox = document.getElementById('chat-box');
     const chatForm = document.getElementById('chat-form');
     const userInput = document.getElementById('user-input');
+    const loadingSpinner = document.getElementById('loading-spinner');
+
+    // Configure marked for safe HTML
+    marked.setOptions({
+      breaks: true,
+      gfm: true,
+      highlight: function(code, lang) {
+        if (lang && hljs.getLanguage(lang)) {
+          return hljs.highlight(code, { language: lang }).value;
+        }
+        return hljs.highlightAuto(code).value;
+      }
+    });
+
+    function addMessage(content, isUser = false) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+      
+      const header = document.createElement('div');
+      header.className = 'message-header';
+      header.textContent = isUser ? 'You' : "Jordan's Agent";
+      messageDiv.appendChild(header);
+
+      const messageContent = document.createElement('div');
+      messageContent.className = 'message-content';
+      
+      // Parse markdown for bot messages
+      if (!isUser) {
+        messageContent.innerHTML = marked.parse(content);
+      } else {
+        messageContent.textContent = content;
+      }
+      
+      messageDiv.appendChild(messageContent);
+      chatBox.appendChild(messageDiv);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
 
     chatForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const message = userInput.value;
-      chatBox.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
-      userInput.value = '';
+      const message = userInput.value.trim();
+      if (!message) return;
 
-      // Send POST request to your Django API
-      const response = await fetch('/api/chat/', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({message: message})
-      });
-      const data = await response.json();
-      chatBox.innerHTML += `<div><strong>Bot:</strong> ${data.response}</div>`;
-      chatBox.scrollTop = chatBox.scrollHeight;
+      // Add user message and clear input
+      addMessage(message, true);
+      userInput.value = '';
+      userInput.disabled = true;
+
+      // Show loading spinner
+      loadingSpinner.style.display = 'block';
+
+      try {
+        // Send POST request to your Django API
+        const response = await fetch('/api/chat/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+          },
+          body: JSON.stringify({message: message})
+        });
+
+        const data = await response.json();
+        
+        // Hide loading spinner
+        loadingSpinner.style.display = 'none';
+        userInput.disabled = false;
+        
+        // Add bot response
+        if (data.response) {
+          addMessage(data.response);
+        } else {
+          addMessage('Sorry, I encountered an error. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        loadingSpinner.style.display = 'none';
+        userInput.disabled = false;
+        addMessage('Sorry, I encountered an error. Please try again.');
+      }
     });
+
+    // Function to get CSRF token
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+
+    // Add initial greeting
+    addMessage('Hello! I\'m Jordan Morgan\'s AI Agent. My job is to answer any questions you have about his career and projects.');
   </script>
 </body>
 </html>
